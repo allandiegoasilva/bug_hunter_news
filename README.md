@@ -11,10 +11,10 @@ We are looking to integrated with some bug hunter platforms like Hackerone and I
 
 ## Colaborators
 
-| Colaborator   | GitHub                                              | 
-| ------------- | --------------------------------------------------- | 
-| Allan Diego   | [Go to GitHUb](https://github.com/allandiegoasilva) |
-| Bruno Garcia  | [Go to GitHUb](https://github.com/Bruno-G-arcia)    |  
+| Colaborator     | GitHub                                              | 
+| --------------- | --------------------------------------------------- | 
+| Allan Diego     | [Go to GitHUb](https://github.com/allandiegoasilva) |
+| Leonardo Alves  | [Go to GitHUb](https://github.com/LeoZeo1)    |  
 
 
 ## How to use 
