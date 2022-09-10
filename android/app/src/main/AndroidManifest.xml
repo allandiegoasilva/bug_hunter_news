@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bug_hunter_news">
    <application
-        android:label="bug_hunter_news"
+        android:label="Bug Hunter News"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
