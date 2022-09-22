@@ -97,7 +97,7 @@ class _RegisterPage extends State<RegisterPage>{
         children: [
           emailInput(),
           passwordInput(),
-          checkBoxTerms(),  
+          checkBoxTerms(),                         
           registerBtn()
         ],
       )
