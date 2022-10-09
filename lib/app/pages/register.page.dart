@@ -1,7 +1,7 @@
 
-import 'package:bug_hunter_news/app/core/color_ui.dart';
-import 'package:bug_hunter_news/app/core/space_ui.dart';
-import 'package:bug_hunter_news/app/core/text_size_ui.dart';
+import 'package:bug_hunter_news/core/color_ui.dart';
+import 'package:bug_hunter_news/core/space_ui.dart';
+import 'package:bug_hunter_news/core/text_size_ui.dart';
 import 'package:flutter/material.dart'; 
 
 

@@ -1,4 +1,4 @@
-import 'package:bug_hunter_news/app/core/color_ui.dart';
+import 'package:bug_hunter_news/core/color_ui.dart';
 import 'package:bug_hunter_news/app/pages/login.page.dart';
 import 'package:bug_hunter_news/app/pages/register.page.dart';
 import 'package:bug_hunter_news/app/pages/template.page.dart';
@@ -36,7 +36,7 @@ class BugHunterNewsState extends State<BugHunterNews> {
         "/register": (context) => RegisterPage(),
         "/home_user": (context) => Template(),
       },
-      initialRoute: "/home_user",
+      initialRoute: "/login",
     );
   }
 }

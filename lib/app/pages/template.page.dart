@@ -1,4 +1,4 @@
-import 'package:bug_hunter_news/app/core/color_ui.dart';
+import 'package:bug_hunter_news/core/color_ui.dart';
 import 'package:bug_hunter_news/app/pages/invites.page.dart';
 import 'package:bug_hunter_news/app/pages/programs.page.dart';
 import 'package:flutter/material.dart';

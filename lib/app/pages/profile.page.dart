@@ -10,6 +10,13 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePage extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Text("Página de perfil");
+    return Scaffold(
+      appBar: AppBar(
+        flexibleSpace: Center(
+          child: Text("Configurações"),
+        ),
+      ),
+      body: Text("oi"),
+    );
   }
 }
