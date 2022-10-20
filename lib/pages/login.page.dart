@@ -1,7 +1,7 @@
-import 'package:bug_hunter_news/core/color_ui.dart';
-import 'package:bug_hunter_news/core/space_ui.dart';
-import 'package:bug_hunter_news/core/text_size_ui.dart';
-import 'package:bug_hunter_news/app/pages/register.page.dart';
+import 'package:bug_hunter_news/constants/color_ui.dart';
+import 'package:bug_hunter_news/constants/space_ui.dart';
+import 'package:bug_hunter_news/constants/text_size_ui.dart';
+import 'package:bug_hunter_news/pages/register.page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {

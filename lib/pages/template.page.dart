@@ -1,9 +1,9 @@
-import 'package:bug_hunter_news/core/color_ui.dart';
-import 'package:bug_hunter_news/app/pages/invites.page.dart';
-import 'package:bug_hunter_news/app/pages/programs.page.dart';
+import 'package:bug_hunter_news/constants/color_ui.dart';
+import 'package:bug_hunter_news/pages/invites.page.dart';
+import 'package:bug_hunter_news/pages/programs.page.dart';
 import 'package:flutter/material.dart';
 
-import 'package:bug_hunter_news/app/pages/profile.page.dart';
+import 'package:bug_hunter_news/pages/profile.page.dart';
 
 class Template extends StatefulWidget {
   const Template({Key? key}) : super(key: key);

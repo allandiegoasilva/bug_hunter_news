@@ -1,15 +1,16 @@
 import 'package:bug_hunter_news/constants/text_size_ui.dart';
 import 'package:flutter/material.dart';
 
-class TitleWidget extends StatelessWidget {
+class SubTitleWidget extends StatelessWidget {
   String? title;
-  TitleWidget({this.title});
+  SubTitleWidget({this.title});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       "${this.title}",
-      style: TextStyle(fontSize: TextSizeUI.title, fontWeight: FontWeight.bold),
+      style:
+          TextStyle(fontSize: TextSizeUI.medium, fontWeight: FontWeight.bold),
     );
   }
 }

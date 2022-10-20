@@ -1,7 +1,7 @@
-import 'package:bug_hunter_news/core/color_ui.dart';
-import 'package:bug_hunter_news/app/pages/login.page.dart';
-import 'package:bug_hunter_news/app/pages/register.page.dart';
-import 'package:bug_hunter_news/app/pages/template.page.dart';
+import 'package:bug_hunter_news/constants/color_ui.dart';
+import 'package:bug_hunter_news/pages/login.page.dart';
+import 'package:bug_hunter_news/pages/register.page.dart';
+import 'package:bug_hunter_news/pages/template.page.dart';
 import 'package:flutter/material.dart';
 
 class BugHunterNews extends StatefulWidget {

@@ -1,9 +1,9 @@
-import 'package:bug_hunter_news/app/pages/platform.page.dart';
-import 'package:bug_hunter_news/core/color_ui.dart';
-import 'package:bug_hunter_news/core/space_ui.dart';
-import 'package:bug_hunter_news/core/text_size_ui.dart';
+import 'package:bug_hunter_news/pages/platform.page.dart';
+import 'package:bug_hunter_news/constants/color_ui.dart';
+import 'package:bug_hunter_news/constants/space_ui.dart';
+import 'package:bug_hunter_news/constants/text_size_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:bug_hunter_news/app/model/platform.information.dart';
+import 'package:bug_hunter_news/model/platform.information.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
