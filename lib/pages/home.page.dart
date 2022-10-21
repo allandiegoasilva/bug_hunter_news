@@ -16,9 +16,11 @@ class BugHunterNewsState extends State<BugHunterNews> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+          visualDensity: VisualDensity.adaptivePlatformDensity,
           primaryColor: ColorUI.primaryColor,
           colorScheme: ThemeData().colorScheme.copyWith(
                 primary: ColorUI.primaryColor,
+                secondary: ColorUI.primaryColor,
               ),
           inputDecorationTheme: InputDecorationTheme(
               focusColor: ColorUI.primaryColor,

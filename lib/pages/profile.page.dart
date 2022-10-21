@@ -1,3 +1,5 @@
+import 'package:bug_hunter_news/components/body.white.area.widget.dart';
+import 'package:bug_hunter_news/components/body.widget.dart';
 import 'package:bug_hunter_news/pages/platform.page.dart';
 import 'package:bug_hunter_news/constants/color_ui.dart';
 import 'package:bug_hunter_news/constants/space_ui.dart';
@@ -15,19 +17,69 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePage extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          title: Text(
-            "Perfil",
-            style: TextStyle(color: Colors.black),
-          ),
-          elevation: 0.5,
-        ),
-        body: Column(
-          children: [_money(), _keyList()],
-        ));
+    return BodyWidget(
+      title: "Perfil",
+      body: Column(
+        children: [
+          _money(),
+          BodyWhiteAreaWidget(
+            body: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 35),
+                  child: _keyList(),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 35, right: 35, bottom: 35),
+                  child: GestureDetector(
+                    onTap: () => Navigator.of(context).pushNamedAndRemoveUntil(
+                        '/login', (Route<dynamic> route) => false),
+                    child: Container(
+                      padding: EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.redAccent.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Desconectar",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: TextSizeUI.medium,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 10),
+                            child: Icon(
+                              Icons.logout,
+                              size: TextSizeUI.title,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 
   Widget _money() {
@@ -43,15 +95,23 @@ class _ProfilePage extends State<ProfilePage> {
                 "Saldo disponível",
                 style: TextStyle(
                     fontSize: TextSizeUI.normal,
-                    color: ColorUI.offuscated,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold),
               ),
             ),
-            Text(
-              "R\$ 0,00",
-              style: TextStyle(
-                  fontSize: TextSizeUI.bigTitle, fontWeight: FontWeight.bold),
-            )
+            Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: ColorUI.lightGray.withOpacity(1),
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                ),
+                child: Text(
+                  "R\$ 0,00",
+                  style: TextStyle(
+                      color: ColorUI.primaryColor,
+                      fontSize: TextSizeUI.bigTitle,
+                      fontWeight: FontWeight.bold),
+                ))
           ],
         )
       ],
