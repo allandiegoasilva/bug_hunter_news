@@ -1,7 +1,15 @@
+import 'dart:convert';
+
+import 'package:bug_hunter_news/constants/api_route.dart';
 import 'package:bug_hunter_news/constants/color_ui.dart';
 import 'package:bug_hunter_news/constants/space_ui.dart';
+import 'package:bug_hunter_news/constants/status.code.dart';
 import 'package:bug_hunter_news/constants/text_size_ui.dart';
+import 'package:bug_hunter_news/controllers/user.controller.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:bug_hunter_news/model/User.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -12,10 +20,61 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPage extends State<RegisterPage> {
   bool _hiddenPassword = true;
-  bool _acceptedTerms = false;
+
+  var userController = UserController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+
+  Widget _Dialog(context, String title, String description) {
+    return Center(
+      child: AlertDialog(
+        title: Text("$title"),
+        content: Text("$description"),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context, 'Cancel'),
+            child: const Text('Fechar'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void register() async {
+    var user = User(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim());
+
+    var response = await userController.register(user);
+
+    if (response["registered"]) {
+      var sharedPreferences = await SharedPreferences.getInstance();
+      sharedPreferences.setString("token", response["token"]);
+      Navigator.of(context).pushNamedAndRemoveUntil(
+          '/home_user', (Route<dynamic> route) => false);
+
+      return;
+    }
+
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) =>
+            _Dialog(context, "Atenção", response["message"]));
+  }
+
+  void validateFields() {
+    if (emailController.text.trim().isNotEmpty &&
+        passwordController.text.trim().isNotEmpty) return register();
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) =>
+            _Dialog(context, "Atenção", "Verifique os campos inválidos."));
+  }
 
   Widget emailInput() {
     return TextField(
+      controller: emailController,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
           hintText: "E-mail",
@@ -26,6 +85,7 @@ class _RegisterPage extends State<RegisterPage> {
 
   Widget passwordInput() {
     return TextField(
+      controller: passwordController,
       obscureText: _hiddenPassword,
       decoration: InputDecoration(
           hintText: "Senha",
@@ -42,7 +102,7 @@ class _RegisterPage extends State<RegisterPage> {
 
   Widget registerBtn() {
     return GestureDetector(
-      onTap: () {},
+      onTap: validateFields,
       child: Container(
         width: double.infinity,
         padding: EdgeInsets.all(SpaceUI.x15),
@@ -62,22 +122,6 @@ class _RegisterPage extends State<RegisterPage> {
     );
   }
 
-  Widget checkBoxTerms() {
-    return Row(
-      children: [
-        Checkbox(
-            activeColor: ColorUI.primaryColor,
-            value: _acceptedTerms,
-            onChanged: (bool? isChecked) {
-              setState(() {
-                _acceptedTerms = isChecked!;
-              });
-            }),
-        Text("Concordo que li e aceitei os termos de uso")
-      ],
-    );
-  }
-
   Widget _FormUI() {
     return Container(
         margin: EdgeInsets.symmetric(
@@ -85,12 +129,7 @@ class _RegisterPage extends State<RegisterPage> {
         child: Wrap(
           spacing: SpaceUI.spacingx20,
           runSpacing: SpaceUI.runSpacingx20,
-          children: [
-            emailInput(),
-            passwordInput(),
-            checkBoxTerms(),
-            registerBtn()
-          ],
+          children: [emailInput(), passwordInput(), registerBtn()],
         ));
   }
 

@@ -5,6 +5,7 @@ import 'package:bug_hunter_news/components/search.wiget.dart';
 import 'package:bug_hunter_news/data/invites.mock.dart';
 import 'package:bug_hunter_news/model/program.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class InvitePage extends StatefulWidget {
   const InvitePage({Key? key}) : super(key: key);
@@ -42,12 +43,8 @@ class _InvitePageState extends State<InvitePage> {
         children: [
           SearchWidget(),
           BodyWhiteAreaWidget(
-            body: ListView.builder(
-              controller: _controller,
-              physics: bounceEffect,
-              itemCount: programs.length,
-              itemBuilder: (context, index) =>
-                  ProgramCardWidget(programs[index]),
+            body: Column(
+              children: [Text("opa")],
             ),
           )
         ],

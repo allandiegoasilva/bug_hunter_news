@@ -6,6 +6,7 @@ import 'package:bug_hunter_news/constants/space_ui.dart';
 import 'package:bug_hunter_news/constants/text_size_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:bug_hunter_news/model/platform.information.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -34,8 +35,13 @@ class _ProfilePage extends State<ProfilePage> {
                   padding:
                       const EdgeInsets.only(left: 35, right: 35, bottom: 35),
                   child: GestureDetector(
-                    onTap: () => Navigator.of(context).pushNamedAndRemoveUntil(
-                        '/login', (Route<dynamic> route) => false),
+                    onTap: () async {
+                      var sharedPreferences =
+                          await SharedPreferences.getInstance();
+                      await sharedPreferences.remove("token");
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          '/login', (Route<dynamic> route) => false);
+                    },
                     child: Container(
                       padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
