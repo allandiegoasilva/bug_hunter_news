@@ -103,7 +103,7 @@ class _DetailPageState extends State<DetailPage> {
                         child: Container(
                           child: Center(
                               child: TitleWidget(
-                            title: widget.program.name!,
+                            title: widget.program.title!,
                             color: Colors.white,
                           )),
                         ),
@@ -213,8 +213,7 @@ class _DetailPageState extends State<DetailPage> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SubTitleWidget(title: "Descrição: "),
-                                    Text(
-                                        "Lorem ipsum is placeholder text commonly used ")
+                                    Text(" "),
                                   ],
                                 )
                               ],

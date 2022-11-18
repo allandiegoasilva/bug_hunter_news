@@ -2,7 +2,7 @@ import 'package:bug_hunter_news/components/body.white.area.widget.dart';
 import 'package:bug_hunter_news/components/body.widget.dart';
 import 'package:bug_hunter_news/components/program.card.widget.dart';
 import 'package:bug_hunter_news/components/search.wiget.dart';
-import 'package:bug_hunter_news/data/invites.mock.dart';
+
 import 'package:bug_hunter_news/model/program.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -18,12 +18,6 @@ class _InvitePageState extends State<InvitePage> {
   var _controller = ScrollController();
   ScrollPhysics bounceEffect = ClampingScrollPhysics();
 
-  List<Program> programs = [
-    ...mockInvites(),
-    ...mockInvites(),
-    ...mockInvites()
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -38,7 +32,7 @@ class _InvitePageState extends State<InvitePage> {
   @override
   Widget build(BuildContext context) {
     return BodyWidget(
-      title: "Últimos convites",
+      title: "Programas automatizados",
       body: Column(
         children: [
           SearchWidget(),

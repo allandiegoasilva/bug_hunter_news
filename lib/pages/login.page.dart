@@ -48,7 +48,6 @@ class LoginPageState extends State<LoginPage> {
     return TextField(
       controller: emailController,
       keyboardType: TextInputType.emailAddress,
-      textCapitalization: TextCapitalization.characters,
       decoration: InputDecoration(
           hintText: "E-mail",
           labelText: "E-mail",

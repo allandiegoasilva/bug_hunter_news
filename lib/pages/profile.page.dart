@@ -124,10 +124,10 @@ class _ProfilePage extends State<ProfilePage> {
     );
   }
 
-  Widget _keyCard(String text, String image) {
+  Widget _keyCard(int id, String text, String image) {
     return GestureDetector(
       onTap: () {
-        var platform = PlatformInformation(name: text, image: image);
+        var platform = PlatformInformation(id: id, name: text, image: image);
 
         Navigator.push(context,
             MaterialPageRoute(builder: ((context) => Platform(platform))));
@@ -182,8 +182,8 @@ class _ProfilePage extends State<ProfilePage> {
               ),
             ],
           ),
-          _keyCard("Hackerone", "assets/hackerone.png"),
-          _keyCard("Intigriti", "assets/intigriti.png")
+          _keyCard(1, "Hackerone", "assets/hackerone.png"),
+          _keyCard(2, "Intigriti", "assets/intigriti.png")
         ],
       ),
     );

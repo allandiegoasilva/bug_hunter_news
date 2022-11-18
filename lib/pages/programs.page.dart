@@ -4,8 +4,9 @@ import 'package:bug_hunter_news/components/body.widget.dart';
 import 'package:bug_hunter_news/components/program.card.widget.dart';
 import 'package:bug_hunter_news/components/search.wiget.dart';
 import 'package:bug_hunter_news/constants/color_ui.dart';
+import 'package:bug_hunter_news/constants/program.type.dart';
 import 'package:bug_hunter_news/constants/space_ui.dart';
-import 'package:bug_hunter_news/data/programs.mock.dart';
+import 'package:bug_hunter_news/controllers/program.controller.dart';
 import 'package:bug_hunter_news/model/Category.dart';
 import 'package:bug_hunter_news/model/program.dart';
 import 'package:flutter/material.dart';
@@ -21,16 +22,15 @@ class ProgramsPage extends StatefulWidget {
 
 class _ProgramsPageState extends State<ProgramsPage> {
   var _controller = ScrollController();
+  var programController = ProgramController();
+
   ScrollPhysics bounceEffect = ClampingScrollPhysics();
 
-  List<Program> programs = [
-    ...mockPrograms(),
-    ...mockPrograms(),
-    ...mockPrograms()
-  ];
+  List<Program> programs = [];
 
   @override
   void initState() {
+    fetchPrograms();
     super.initState();
     _controller.addListener(() {
       if (_controller.position.pixels <= 56)
@@ -40,6 +40,12 @@ class _ProgramsPageState extends State<ProgramsPage> {
     });
   }
 
+  void fetchPrograms() async {
+    var response = await programController.read();
+
+    setState(() => programs = response.toList());
+  }
+
   @override
   Widget build(BuildContext context) {
     return BodyWidget(
@@ -47,7 +53,6 @@ class _ProgramsPageState extends State<ProgramsPage> {
       body: Column(
         children: [
           SearchWidget(),
-          _CategoryList(),
           BodyWhiteAreaWidget(
             body: ListView.builder(
               controller: _controller,
@@ -58,29 +63,6 @@ class _ProgramsPageState extends State<ProgramsPage> {
             ),
           )
         ],
-      ),
-    );
-  }
-
-  Widget _CategoryList() {
-    var currentItem = 0;
-    var categories = [Category(text: "Público"), Category(text: "Privado")];
-
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        margin: EdgeInsets.symmetric(
-          vertical: SpaceUI.x15,
-        ),
-        height: 30,
-        child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: categories.length,
-            itemBuilder: (context, index) {
-              categories[index].selected = index == currentItem;
-
-              return BadgeWidget(categories[index]);
-            }),
       ),
     );
   }

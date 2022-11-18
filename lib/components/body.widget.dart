@@ -4,7 +4,6 @@ import 'package:bug_hunter_news/components/program.card.widget.dart';
 import 'package:bug_hunter_news/components/search.wiget.dart';
 import 'package:bug_hunter_news/constants/color_ui.dart';
 import 'package:bug_hunter_news/constants/space_ui.dart';
-import 'package:bug_hunter_news/data/programs.mock.dart';
 import 'package:bug_hunter_news/model/Category.dart';
 import 'package:bug_hunter_news/model/program.dart';
 import 'package:bug_hunter_news/widgets/sub.title.widget.dart';
