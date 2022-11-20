@@ -115,7 +115,22 @@ class _ProgramCardWidgetState extends State<ProgramCardWidget> {
                                 style: TextStyle(fontWeight: FontWeight.w600),
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.5),
+                                color: Color.fromARGB(255, 218, 218, 218)
+                                    .withOpacity(0.5),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5)),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(right: 5),
+                              padding: EdgeInsets.all(3),
+                              child: Text(
+                                widget.program.platform_name!,
+                                style: TextStyle(fontWeight: FontWeight.w600),
+                              ),
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 225, 103, 255)
+                                    .withOpacity(0.5),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(5)),
                               ),

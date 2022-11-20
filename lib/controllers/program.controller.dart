@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
-import 'dart:io';
 
 import 'package:bug_hunter_news/constants/api_route.dart';
 import 'package:bug_hunter_news/constants/auth.request.dart';
@@ -15,7 +13,6 @@ class ProgramController {
   Future<List<Program>> read({int? platformId = null}) async {
     var response = await request.get(
         ApiRoute.base_url + ApiRoute.program + (platformId ?? "").toString());
-
     var data = jsonDecode(response.body);
 
     List<Program> programs = [];
