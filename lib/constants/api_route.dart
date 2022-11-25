@@ -8,4 +8,5 @@ class ApiRoute {
   static const String program = "/program";
   static const String program_favorite = "/program/favorite/";
   static const String remove_program_favorite = "/program/favorite/";
+  static const String automate = "/automate";
 }

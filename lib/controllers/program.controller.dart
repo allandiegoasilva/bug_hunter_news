@@ -53,4 +53,17 @@ class ProgramController {
         ApiRoute.remove_program_favorite +
         programId.toString());
   }
+
+  Future<List<dynamic>> automates() async {
+    var response = await request.get(ApiRoute.base_url + ApiRoute.automate);
+    var data = jsonDecode(response.body);
+    var programs = data["data"];
+    return programs;
+  }
+
+  Future<void> automate(int programId, Map data) async {
+    await request.post(
+        ApiRoute.base_url + ApiRoute.automate + '/' + programId.toString(),
+        data);
+  }
 }

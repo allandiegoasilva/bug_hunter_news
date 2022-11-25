@@ -189,6 +189,7 @@ class _PlatformState extends State<Platform> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(40),
           child: CustomAppBar(title: "Sua chave"),
@@ -203,25 +204,32 @@ class _PlatformState extends State<Platform> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset("${widget.platform.image}"),
+                    Expanded(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset("${widget.platform.image}"),
+                      ),
                     ),
-                    Text(
-                      "${widget.platform.name}",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    Expanded(
+                      child: Text(
+                        "${widget.platform.name}",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: TextField(
-                        controller: tokenController,
-                        obscureText: !visibleKey,
-                        decoration: InputDecoration(
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: TextField(
+                          controller: tokenController,
+                          obscureText: !visibleKey,
+                          decoration: InputDecoration(
                             label: Text("Chave"),
                             suffixIcon: IconButton(
                               icon: keyIcon,
                               onPressed: changeVisibility,
-                            )),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                     saveButton()

@@ -50,7 +50,7 @@ class _ProgramCardWidgetState extends State<ProgramCardWidget> {
       onTap: () => Navigator.push(context,
           MaterialPageRoute(builder: (context) => DetailPage(widget.program!))),
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
+        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
         padding: EdgeInsets.only(left: 5, top: 5),
         width: size.width,
         height: 130,

@@ -262,7 +262,17 @@ class _DetailPageState extends State<DetailPage> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await programController.automate(widget.program.id!,
+                      {'scopes': scopeAutomate, 'tools': tools});
+
+                  Navigator.pop(context, 'Cancel');
+
+                  showDialog(
+                      context: context,
+                      builder: (context) => _Dialog(context, 'Atenção',
+                          'O programa entrou para fila de automatização.'));
+                },
                 child: Text("Automatizar"),
               )
             ],
